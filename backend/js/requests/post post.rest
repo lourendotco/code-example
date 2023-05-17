@@ -1,0 +1,11 @@
+POST http://localhost:3003/api/blogs
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImpvaG4iLCJpZCI6IjY0MWYyMWE0OTgyOTUyNTIwZmJhODAyYSIsImlhdCI6MTY3OTc2MTg0OCwiZXhwIjoxNjc5NzY1NDQ4fQ.ZY1Gw_H2YCpaQnJJ-m32Ma5C3WdUxuWrR8bY257EXQ0
+
+{
+    "author":"Robert C. adf;sfsklasdjf",
+    "title":"Type wars",
+    "url": "http://blog.cleancoder.com/uncle-bob/2016/05/01/TypeWars.html",
+    "user": "641dcdf932cb94135a2f0e9e",
+    "tags": ["intERRrnet", "type", "war"]
+}

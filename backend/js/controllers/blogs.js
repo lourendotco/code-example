@@ -177,8 +177,8 @@ blogsR.delete("/:id", async (req, res) => {
     return res.status(401).send({ error: "no permission" });
   }
   const endangered = await Blog.findById(req.params.id);
-  if (endangered?.user.toString() === req.user.id) {
-    await endangered.deleteOne();
+  if (endangered?.user.toString() === req.user.id) {   // need to correct this: blog.user is an array. it works, but.
+    await endangered.deleteOne();                       // findOneAndDelete where user includes req.user.id and _id: req.params.id
     return res.status(204).end();
   }
   return res.status(401).send({ error: "no permission" });
