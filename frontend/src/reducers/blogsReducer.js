@@ -7,9 +7,9 @@ const baseUrl = "/api/blogs";
 
 export const fetchBlogs = createAsyncThunk(
   "blogs/fetchBlogs",
-  async (content, thunkApi) => {
+  async (_content, thunkApi) => {
     const state = await thunkApi.getState();
-    const token = `Bearer ${state.user.userToken}`;
+    const token = state.user ? `Bearer ${state.user.userToken}` : '' ;
     try {
       const request = await axios.get(baseUrl, {
         headers: { Authorization: token },
@@ -126,7 +126,7 @@ export const likeBlog = createAsyncThunk(
   "blogs/likeBlog",
   async ({ blog_id, vote }, thunkApi) => {
     const state = await thunkApi.getState();
-    const token = `Bearer ${state.user.userToken}`;
+    const token = state.user ? `Bearer ${state.user.userToken}` : '' ;
     try {
       await axios.put(
         `${baseUrl}/like/${blog_id}`,

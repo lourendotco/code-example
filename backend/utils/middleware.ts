@@ -31,13 +31,14 @@ const userExtract = (req:authReq, res:Response, next:NextFunction) => {
         } catch (e) {
             if (e instanceof Error) {
                 if (e.name === 'JsonWebTokenError') {
-                    res.status(401).send({ error: e.message });
+                    return res.status(401).send({ error: e.message });
                 } else if (e.name === 'TokenExpiredError') {
-                    res.status(401).send({ error: 'Session expired' });
+                    return res.status(401).send({ error: 'Session expired' });
                 }
             }
         }
     next();
+    return
 };
 
 export default {

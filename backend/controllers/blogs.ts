@@ -225,7 +225,7 @@ blogsR.post("/comment/:id", (async (req, res) => {
 blogsR.put("/like/:id", (async (req: authReq, res, next) => {
 
   if (!req.user || isString(req.user) || !isString(req.user.id)) {
-    return res.status(401).send({ error: "no permission" });
+    return res.status(401).send({ error: "please login in order to vote" });
   }
   const alreadyLiked = await Likes.findOne({
     blog_id: req.params.id,
